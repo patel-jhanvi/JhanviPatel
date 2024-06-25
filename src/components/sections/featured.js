@@ -21,7 +21,7 @@ const StyledProject = styled.li`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
-  align-items: center;
+  align-items: start;
 
   @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.boxShadow};
@@ -155,7 +155,8 @@ const StyledProject = styled.li`
     ${({ theme }) => theme.mixins.boxShadow};
     position: relative;
     z-index: 2;
-    padding: 25px;
+    padding: 30px; /* Increased padding */
+    margin-right: 10px; /* Added margin to the right */
     border-radius: var(--border-radius);
     background-color: var(--light-navy);
     color: var(--light-slate);
@@ -163,6 +164,7 @@ const StyledProject = styled.li`
 
     @media (max-width: 768px) {
       padding: 20px 0;
+      margin-right: 0; /* Remove margin for mobile view */
       background-color: transparent;
       box-shadow: none;
 
@@ -292,11 +294,13 @@ const StyledProject = styled.li`
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
       filter: grayscale(100%) contrast(1) brightness(90%);
+      object-fit: contain; /* Maintain the original size of the image */
+      max-height: 400px; /* Ensure the height is consistent */
 
       @media (max-width: 768px) {
-        object-fit: cover;
-        width: auto;
-        height: 100%;
+        object-fit: contain;
+        width: 100%;
+        height: auto;
         filter: grayscale(100%) contrast(1) brightness(50%);
       }
     }
@@ -322,7 +326,8 @@ const Featured = () => {
               tech
               github
               external
-              cta
+              link
+              description
             }
             html
           }
@@ -343,37 +348,40 @@ const Featured = () => {
 
     sr.reveal(revealTitle.current, srConfig());
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <section id="projects">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        Key Accomplishments and Projects
       </h2>
 
       <StyledProjectsGrid>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
-            const image = getImage(cover);
+            const { external, title, tech, github, cover, link, description } = frontmatter;
+            const image =
+              cover && cover.childImageSharp
+                ? getImage(cover.childImageSharp.gatsbyImageData)
+                : null;
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
+                    <p className="project-overline">Featured</p>
 
                     <h3 className="project-title">
-                      <a href={external}>{title}</a>
+                      <a href={external || link}>{title}</a>
                     </h3>
 
                     <div
                       className="project-description"
-                      dangerouslySetInnerHTML={{ __html: html }}
+                      dangerouslySetInnerHTML={{ __html: html || description }}
                     />
 
-                    {tech.length && (
+                    {tech && tech.length > 0 && (
                       <ul className="project-tech-list">
                         {tech.map((tech, i) => (
                           <li key={i}>{tech}</li>
@@ -382,18 +390,18 @@ const Featured = () => {
                     )}
 
                     <div className="project-links">
-                      {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
-                        </a>
-                      )}
                       {github && (
                         <a href={github} aria-label="GitHub Link">
                           <Icon name="GitHub" />
                         </a>
                       )}
-                      {external && !cta && (
+                      {external && !link && (
                         <a href={external} aria-label="External Link" className="external">
+                          <Icon name="External" />
+                        </a>
+                      )}
+                      {link && (
+                        <a href={link} aria-label="Learn More" className="external">
                           <Icon name="External" />
                         </a>
                       )}
@@ -401,11 +409,13 @@ const Featured = () => {
                   </div>
                 </div>
 
-                <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image} alt={title} className="img" />
-                  </a>
-                </div>
+                {image && (
+                  <div className="project-image">
+                    <a href={external ? external : github ? github : '#'}>
+                      <GatsbyImage image={image} alt={title} className="img" />
+                    </a>
+                  </div>
+                )}
               </StyledProject>
             );
           })}

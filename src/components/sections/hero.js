@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { navDelay, loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   min-height: 100vh;
   height: 100vh;
-  padding: 0;
+  padding: var(--nav-height) 20px 0;
 
   @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
+    flex-direction: column;
     height: auto;
     padding-top: var(--nav-height);
   }
+`;
 
+const StyledHeroText = styled.div`
+  flex: 1;
   h1 {
     margin: 0 0 30px 4px;
     color: var(--green);
@@ -27,6 +33,11 @@ const StyledHeroSection = styled.section`
     @media (max-width: 480px) {
       margin: 0 0 20px 2px;
     }
+  }
+
+  h2 {
+    font-size: 48px;
+    line-height: 1.1;
   }
 
   h3 {
@@ -40,9 +51,79 @@ const StyledHeroSection = styled.section`
     max-width: 540px;
   }
 
-  .email-link {
+  .linkedin-link {
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
+  }
+`;
+
+const StyledPic = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+
+  @media (max-width: 768px) {
+    margin: 50px auto 0;
+    width: 70%;
+  }
+
+  .wrapper {
+    ${({ theme }) => theme.mixins.boxShadow};
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--green);
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      transform: translate(-4px, -4px);
+
+      &:after {
+        transform: translate(8px, 8px);
+      }
+
+      .img {
+        filter: none;
+        mix-blend-mode: normal;
+      }
+    }
+
+    .img {
+      position: relative;
+      border-radius: var(--border-radius);
+      mix-blend-mode: multiply;
+      filter: grayscale(100%) contrast(1);
+      transition: var(--transition);
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    &:before {
+      top: 0;
+      left: 0;
+      background-color: var(--navy);
+      mix-blend-mode: screen;
+    }
+
+    &:after {
+      border: 2px solid var(--green);
+      top: 14px;
+      left: 14px;
+      z-index: -1;
+    }
   }
 `;
 
@@ -52,36 +133,42 @@ const Hero = () => {
 
   useEffect(() => {
     if (prefersReducedMotion) {
-      return;
+      setIsMounted(true);
+    } else {
+      const timeout = setTimeout(() => setIsMounted(true), navDelay);
+      return () => clearTimeout(timeout);
     }
-
-    const timeout = setTimeout(() => setIsMounted(true), navDelay);
-    return () => clearTimeout(timeout);
-  }, []);
+  }, [prefersReducedMotion]);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Brittany Chiang.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const two = <h2 className="big-heading">Jhanvi Patel.</h2>;
+  const three = <h3 className="big-heading">I build things for the Cloud and Web!</h3>;
   const four = (
     <>
       <p>
-        I’m a software engineer specializing in building (and occasionally designing) exceptional
-        digital experiences. Currently, I’m focused on building accessible, human-centered products
-        at{' '}
-        <a href="https://upstatement.com/" target="_blank" rel="noreferrer">
-          Upstatement
-        </a>
-        .
+        I am a recent graduate(May'24) with a Master's degree in Informatics, specializing in Cloud
+        Computing, from Northeastern University. My studies have equipped me with a thorough
+        understanding of digital interactions, combining elegant design with practical usability.
       </p>
+      <p>
+        Skilled in AWS, I can design and deploy scalable, secure, and efficient cloud solutions. I
+        am passionate about creating impactful, user-centric technologies.
+      </p>
+      <p>
+        I am currently seeking full-time opportunities where I can leverage my knowledge and skills
+        to drive impactful projects and build meaningful professional relationships.
+      </p>
+
+      <p> Code ideas that imapacts lives!</p>
     </>
   );
   const five = (
     <a
-      className="email-link"
-      href="https://www.newline.co/courses/build-a-spotify-connected-app"
+      className="linkedin-link"
+      href="https://www.linkedin.com/in/jhanvipatel/"
       target="_blank"
       rel="noreferrer">
-      Check out my course!
+      Let's Connect
     </a>
   );
 
@@ -89,22 +176,37 @@ const Hero = () => {
 
   return (
     <StyledHeroSection>
-      {prefersReducedMotion ? (
-        <>
-          {items.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
-        </>
-      ) : (
-        <TransitionGroup component={null}>
-          {isMounted &&
-            items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-              </CSSTransition>
+      <StyledHeroText>
+        {prefersReducedMotion ? (
+          <>
+            {items.map((item, i) => (
+              <div key={i}>{item}</div>
             ))}
-        </TransitionGroup>
-      )}
+          </>
+        ) : (
+          <TransitionGroup component={null}>
+            {isMounted &&
+              items.map((item, i) => (
+                <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
+                  <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+                </CSSTransition>
+              ))}
+          </TransitionGroup>
+        )}
+      </StyledHeroText>
+      <StyledPic>
+        <div className="wrapper">
+          <StaticImage
+            className="img"
+            src="../../../src/images/me.png"
+            width={500}
+            quality={95}
+            formats={['AUTO', 'WEBP', 'AVIF']}
+            alt="Headshot"
+            style={{ opacity: 1 }}
+          />
+        </div>
+      </StyledPic>
     </StyledHeroSection>
   );
 };

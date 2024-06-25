@@ -169,10 +169,7 @@ const Projects = () => {
   const data = useStaticQuery(graphql`
     query {
       projects: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/content/projects/" }
-          frontmatter: { showInProjects: { ne: false } }
-        }
+        filter: { fileAbsolutePath: { regex: "/content/projects/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -182,6 +179,7 @@ const Projects = () => {
               tech
               github
               external
+              showInProjects
             }
             html
           }
@@ -204,12 +202,12 @@ const Projects = () => {
     sr.reveal(revealTitle.current, srConfig());
     sr.reveal(revealArchiveLink.current, srConfig());
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
-  }, []);
+  }, [prefersReducedMotion]);
 
-  const GRID_LIMIT = 6;
-  const projects = data.projects.edges.filter(({ node }) => node);
-  const firstSix = projects.slice(0, GRID_LIMIT);
-  const projectsToShow = showMore ? projects : firstSix;
+  const allProjects = data.projects.edges.filter(({ node }) => node);
+  const displayedProjects = showMore
+    ? allProjects
+    : allProjects.filter(({ node }) => node.frontmatter.showInProjects);
 
   const projectInner = node => {
     const { frontmatter, html } = node;
@@ -274,25 +272,21 @@ const Projects = () => {
       <ul className="projects-grid">
         {prefersReducedMotion ? (
           <>
-            {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
+            {displayedProjects &&
+              displayedProjects.map(({ node }, i) => (
                 <StyledProject key={i}>{projectInner(node)}</StyledProject>
               ))}
           </>
         ) : (
           <TransitionGroup component={null}>
-            {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
-                  exit={false}>
+            {displayedProjects &&
+              displayedProjects.map(({ node }, i) => (
+                <CSSTransition key={i} classNames="fadeup" timeout={i * 300} exit={false}>
                   <StyledProject
                     key={i}
                     ref={el => (revealProjects.current[i] = el)}
                     style={{
-                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                      transitionDelay: `${i * 100}ms`,
                     }}>
                     {projectInner(node)}
                   </StyledProject>

@@ -125,7 +125,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = ['AWS (Solution Architect)', 'JavaScript', 'TypeScript', 'React'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,30 +135,22 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              Hello! Although I am recent graduate but definetly not new to technology. Before route
+              to master's I had a solid foundation in Computer Engineering from Gujarat
+              Technological University, India.
             </p>
-
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              My journey at Northeastern University is full of learnings and fun. I did projects
+              that strengthen my skiils, led projects to build prototype for universities lab.
+              Awarded with Humanics Award 2024 due to my work imapact during my co-op at
+              Breathing.Ai. Currently, In preparation of Associate Solution Architect strengthing my
+              knowledge and skills in Cloud. I thrive in Team and collaborative enviroment, I like
+              to led projects and competitive to win the projects to completion.
             </p>
-
             <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              Away from screen, I might be busy watering my plants, I like cooking specially making
+              sweets while vibing on some good beats! I restarted my yoga journey to become
+              consistence once again which helps at my work too!
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
@@ -173,7 +165,7 @@ const About = () => {
           <div className="wrapper">
             <StaticImage
               className="img"
-              src="../../images/me.jpg"
+              src="/Users/jhanvi_patel/Desktop/Portfolio/src/images/about.png"
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
