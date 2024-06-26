@@ -105,3 +105,4 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     },
   });
 };
+//Edited by Jhanvi Patel
