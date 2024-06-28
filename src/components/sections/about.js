@@ -135,22 +135,24 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! Although I am recent graduate but definetly not new to technology. Before route
-              to master's I had a solid foundation in Computer Engineering from Gujarat
-              Technological University, India.
+              Hello! While I am a recent graduate, my journey in technology started long before.
+              With a solid foundation in Computer Engineering from Gujarat Technological University,
+              India, I embarked on my master’s degree with a strong technical background.
             </p>
             <p>
-              My journey at Northeastern University is full of learnings and fun. I did projects
-              that strengthen my skiils, led projects to build prototype for universities lab.
-              Awarded with Humanics Award 2024 due to my work imapact during my co-op at
-              Breathing.Ai. Currently, In preparation of Associate Solution Architect strengthing my
-              knowledge and skills in Cloud. I thrive in Team and collaborative enviroment, I like
-              to led projects and competitive to win the projects to completion.
+              My time at Northeastern University has been a blend of intensive learning and
+              rewarding experiences. I worked on projects that honed my skills, including leading
+              initiatives to develop prototypes for university labs. My impactful contributions
+              during my co-op at Breathing.Ai earned me the prestigious Humanics Award in 2024.
+              Currently, I am preparing for the Associate Solution Architect certification, focusing
+              on enhancing my expertise in Cloud Computing. I thrive in collaborative team
+              environments, enjoy leading projects, and am driven by the competitive spirit to see
+              projects to a successful completion.
             </p>
             <p>
-              Away from screen, I might be busy watering my plants, I like cooking specially making
-              sweets while vibing on some good beats! I restarted my yoga journey to become
-              consistence once again which helps at my work too!
+              Beyond the screen, you’ll often find me tending to my plants or experimenting with new
+              recipes, especially sweets, while enjoying some good music. I’ve also rekindled my
+              passion for yoga, aiming for consistency which positively impacts my work.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

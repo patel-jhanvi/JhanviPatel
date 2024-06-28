@@ -11,14 +11,7 @@ const StyledHeroSection = styled.section`
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
-  height: 100vh;
   padding: var(--nav-height) 20px 0;
-
-  @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
-    flex-direction: column;
-    height: auto;
-    padding-top: var(--nav-height);
-  }
 `;
 
 const StyledHeroText = styled.div`
@@ -49,6 +42,18 @@ const StyledHeroText = styled.div`
   p {
     margin: 20px 0 0;
     max-width: 540px;
+  }
+
+  .skills-list {
+    margin-top: 20px;
+    list-style: disc;
+    padding-left: 20px;
+    color: var(--light-slate);
+    font-size: var(--fz-lg);
+
+    li {
+      margin-bottom: 10px;
+    }
   }
 
   .linkedin-link {
@@ -146,20 +151,29 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        I am a recent graduate(May'24) with a Master's degree in Informatics, specializing in Cloud
-        Computing, from Northeastern University. My studies have equipped me with a thorough
-        understanding of digital interactions, combining elegant design with practical usability.
+        I am a recent graduate (May 2024) with a Master's degree in Informatics, specializing in
+        Cloud Computing, from Northeastern University. My studies have provided me with a thorough
+        understanding of digital interactions, blending elegant design with practical usability.
+        This degree has not only strengthened my technical expertise but also enhanced my management
+        skills in technology.
       </p>
       <p>
-        Skilled in AWS, I can design and deploy scalable, secure, and efficient cloud solutions. I
-        am passionate about creating impactful, user-centric technologies.
+        Skilled in AWS, I excel in designing and deploying scalable, secure, and efficient cloud
+        solutions. Additionally, I have extensive experience in building web technologies using
+        JavaScript, TypeScript, and React. I am passionate about creating impactful, user-centric
+        technologies.
       </p>
       <p>
         I am currently seeking full-time opportunities where I can leverage my knowledge and skills
         to drive impactful projects and build meaningful professional relationships.
       </p>
-
-      <p> Code ideas that imapacts lives!</p>
+      <p>Code ideas that impact lives!</p>
+      <ul className="skills-list">
+        <li>ReactJS</li>
+        <li>NextJS</li>
+        <li>JavaScript</li>
+        <li>NodeJS</li>
+      </ul>
     </>
   );
   const five = (

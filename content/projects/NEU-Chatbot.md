@@ -2,7 +2,7 @@
 date: '2024-01-16'
 title: 'Northeastern Procurement Chatbot'
 github: ''
-external: 'https://nl4ie.sites.northeastern.edu/2023/09/06/whats-a-diverse-supplier-chatbot/'
+external: 'https://drive.google.com/file/d/13lEB7zXEWnqYZj0NkL1tzkcFeRLlOCPy/view?usp=drive_link'
 tech:
   - Python (Flask)
   - OpenAI API

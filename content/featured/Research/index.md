@@ -2,7 +2,7 @@
 date: '2'
 title: 'Gen-AI Diverse Chatbot'
 cover: './Research.jpeg'
-github: 'https://github.com/your-repo-link'
+github: 'https://github.com/patel-jhanvi/Gen-AI-Chatbot-.git'
 link: 'https://drive.google.com/file/d/13lEB7zXEWnqYZj0NkL1tzkcFeRLlOCPy/view?usp=drive_link'
 tech:
   - Python
