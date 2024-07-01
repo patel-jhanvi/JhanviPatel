@@ -168,12 +168,6 @@ const Hero = () => {
         to drive impactful projects and build meaningful professional relationships.
       </p>
       <p>Code ideas that impact lives!</p>
-      <ul className="skills-list">
-        <li>ReactJS</li>
-        <li>NextJS</li>
-        <li>JavaScript</li>
-        <li>NodeJS</li>
-      </ul>
     </>
   );
   const five = (

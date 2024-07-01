@@ -5,7 +5,7 @@ module.exports = {
     title: 'Jhanvi Patel',
     description:
       'Jhanvi Patel is a software engineer who specializes in building Cloud and Web applications (and occasionally designing).',
-    siteUrl: 'https://patel-jhanvi.github.io/JhanviPatel/q1', // Placeholder URL
+    siteUrl: 'https://patel-jhanvi.github.io/JhanviPatel/', // Placeholder URL
     image: '/logo.png', // Path to your image you placed in the 'static' folder
   },
   plugins: [
