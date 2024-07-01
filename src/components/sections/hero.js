@@ -151,11 +151,10 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        I am a recent graduate (May 2024) with a Master's degree in Informatics, specializing in
-        Cloud Computing, from Northeastern University. My studies have provided me with a thorough
-        understanding of digital interactions, blending elegant design with practical usability.
-        This degree has not only strengthened my technical expertise but also enhanced my management
-        skills in technology.
+        I have a Master's degree in Informatics, specializing in Cloud Computing, from Northeastern
+        University. My studies have provided me with a thorough understanding of digital
+        interactions, blending elegant design with practical usability. This degree has not only
+        strengthened my technical expertise but also enhanced my management skills in technology.
       </p>
       <p>
         Skilled in AWS, I excel in designing and deploying scalable, secure, and efficient cloud
