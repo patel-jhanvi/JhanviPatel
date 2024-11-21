@@ -1,7 +1,7 @@
 ---
 date: '2023-01-15'
 title: 'Online Cloud Bakery'
-github: 'https://github.com/patel-jhanvi/KabhiB-Bakery.git'
+github: 'https://github.com/patel-jhanvi/KabhiB-Bakery'
 external: ''
 tech:
   - AWS

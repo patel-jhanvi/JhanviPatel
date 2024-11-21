@@ -147,24 +147,27 @@ const Hero = () => {
 
   const one = <h1>Hi, my name is</h1>;
   const two = <h2 className="big-heading">Jhanvi Patel.</h2>;
-  const three = <h3 className="big-heading">I build things for the Cloud and Web!</h3>;
+  const three = <h3 className="big-heading">I build things for Web with Cloud!</h3>;
   const four = (
     <>
       <p>
-        I have a Master's degree in Informatics, specializing in Cloud Computing, from Northeastern
-        University. My studies have provided me with a thorough understanding of digital
-        interactions, blending elegant design with practical usability. This degree has not only
-        strengthened my technical expertise but also enhanced my management skills in technology.
+        I design and develop scalable, user-centric web applications and softwares, combining the
+        power of AWS with cutting-edge cloud technologies and modern software design principles.
+        With a Master's in Informatics, specializing in Cloud Computing from Northeastern
+        University, I’ve built a solid foundation in cloud architecture and full-stack development.
+        My approach blends technical expertise with a keen eye for creating intuitive, high-quality
+        user experiences.
       </p>
       <p>
-        Skilled in AWS, I excel in designing and deploying scalable, secure, and efficient cloud
-        solutions. Additionally, I have extensive experience in building web technologies using
-        JavaScript, TypeScript, and React. I am passionate about creating impactful, user-centric
-        technologies.
+        I’m skilled in leveraging AWS for cloud infrastructure, using React, JavaScript, TypeScript
+        to build dynamic web applications, and applying software design practices to ensure
+        maintainable, robust solutions. I’m passionate about using the cloud to streamline web and
+        software development, building solutions that deliver real-world impact.
       </p>
       <p>
-        I am currently seeking full-time opportunities where I can leverage my knowledge and skills
-        to drive impactful projects and build meaningful professional relationships.
+        Currently, I’m seeking full-time opportunities where I can apply my skills in cloud
+        computing, software design, and development to contribute to innovative, meaningful
+        projects.
       </p>
       <p>Code ideas that impact lives!</p>
     </>

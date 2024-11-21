@@ -125,7 +125,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['AWS (Solution Architect)', 'JavaScript', 'TypeScript', 'React'];
+  const skills = ['JavaScript', 'React', 'AWS', 'TypeScript'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,24 +135,29 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! While I am a recent graduate, my journey in technology started long before.
-              With a solid foundation in Computer Engineering from Gujarat Technological University,
-              India, I embarked on my master’s degree with a strong technical background.
+              Hello! While I am a recent graduate, my journey in technology began long before. With
+              a solid foundation in Computer Engineering from Gujarat Technological University,
+              India, I pursued my master's degree in Informatics at Northeastern University, where I
+              specialized in Cloud Computing and Software Development.
             </p>
             <p>
-              My time at Northeastern University has been a blend of intensive learning and
-              rewarding experiences. I worked on projects that honed my skills, including leading
-              initiatives to develop prototypes for university labs. My impactful contributions
-              during my co-op at Breathing.Ai earned me the prestigious Humanics Award in 2024.
-              Currently, I am preparing for the Associate Solution Architect certification, focusing
-              on enhancing my expertise in Cloud Computing. I thrive in collaborative team
-              environments, enjoy leading projects, and am driven by the competitive spirit to see
-              projects to a successful completion.
+              During my time at Northeastern, I worked on impactful projects, including developing
+              Gen-AI prototypes for university procurement lab. My co-op at Breathing.Ai, where I
+              contributed to mental health software, earned me the prestigious **Humanics Award** in
+              2024, as I was recognized for my ability to adapt, collaborate, and make a meaningful
+              impact in the workplace based on positive feedback from my manager.
             </p>
             <p>
-              Beyond the screen, you’ll often find me tending to my plants or experimenting with new
-              recipes, especially sweets, while enjoying some good music. I’ve also rekindled my
-              passion for yoga, aiming for consistency which positively impacts my work.
+              Currently, I am working as a frontend developer for an early-stage startup, where I am
+              building a customer service platform to connect users with car service providers. I am
+              continually enhancing my skills in frontend technologies and cloud computing, striving
+              to build scalable, user-centric applications that meet real-world needs.
+            </p>
+            <p>
+              Outside of technology, I enjoy tending to my plants, experimenting with new recipes
+              (especially sweets!), and listening to music. I’ve also rekindled my passion for yoga,
+              which helps me maintain focus, creativity, and discipline—qualities that positively
+              influence my professional work.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
@@ -167,7 +172,7 @@ const About = () => {
           <div className="wrapper">
             <StaticImage
               className="img"
-              src="/Users/jhanvi_patel/Desktop/Portfolio/src/images/about.png"
+              src="../../images/about.png"
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
