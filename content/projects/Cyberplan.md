@@ -2,7 +2,7 @@
 date: '2022-08-15'
 title: 'NIST Cyber Plan'
 github: 'https://github.com/patel-jhanvi/GCP-Cyber-NIST-plan.git'
-external: 'https://tools.applemusic.com/en-us'
+external: ''
 tech:
   - GCP
   - NIST protocols
